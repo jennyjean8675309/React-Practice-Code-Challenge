@@ -11,8 +11,14 @@ const Table = (props) => {
   return (
     <Fragment>
       <h1 className="remaining">
-        You have: ${ /* Give me how much money I have left */ } remaining!
+        You have: ${props.wallet} remaining!
       </h1>
+      <h2>Add more money:</h2>
+      <form onSubmit={props.addMoney} >
+        <label for="amount">Dollar amount ($):</label>
+        <input name="amount" type="number"></input>
+        <input type="submit"></input>
+      </form>
       <div className="table">
         <div className="stack">
           {
@@ -21,7 +27,7 @@ const Table = (props) => {
                and renders an empty plate
                for every element in the array
             */
-            renderPlates([])
+            renderPlates(props.eatenSushi)
           }
         </div>
       </div>
